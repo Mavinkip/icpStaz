@@ -1,0 +1,38 @@
+{
+  "canisters": {
+    "flat2_backend": {
+      "build": "python -m kybra flat2_backend src/flat2_backend/src/main.py src/flat2_backend/flat2_backend.did",
+      "candid": "src/flat2_backend/flat2_backend.did",
+      "gzip": true,
+      "post_install": ".kybra/flat2_backend/post_install.sh",
+      "tech_stack": {
+        "cdk": {
+          "kybra": {}
+        },
+        "language": {
+          "python": {}
+        }
+      },
+      "type": "custom",
+      "wasm": ".kybra/flat2_backend/flat2_backend.wasm"
+    },
+    "flat2_frontend": {
+      "dependencies": [
+        "flat2_backend"
+      ],
+      "source": [
+        "src/flat2_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "flat2_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
